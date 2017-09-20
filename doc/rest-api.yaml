@@ -1,0 +1,190 @@
+swagger: '2.0'
+info:
+  description: REST server
+  version: 1.0.0
+  title: REST API
+  termsOfService: 'http://berdaflex.com'
+  contact:
+    name: Siarhei Berdachuk
+    url: 'http://berdaflex.com'
+    email: berdachuk@berdaflex.com
+  license:
+    name: Propriety
+    url: 'http://berdaflex.com'
+host: 'localhost:8088'
+basePath: /rest
+tags:
+  - name: cabinet-rest-controller
+    description: Cabinet Rest Controller
+paths:
+  /cabinet/api/v1/account-info:
+    get:
+      tags:
+        - cabinet
+      summary: Get current Account Info
+      description: Returns a CabinetAccountInfo based on authorisation
+      operationId: getAccountInfo
+      consumes:
+        - application/json
+      produces:
+        - application/json
+      parameters:
+        - name: cabinetApiKey
+          in: query
+          description: Cabinet API key
+          required: true
+          type: string
+      responses:
+        '200':
+          description: CabinetAccountInfo
+          schema:
+            $ref: '#/definitions/CabinetAccountInfo'
+        '401':
+          description: Authorization error message
+          schema:
+            $ref: '#/definitions/ErrorResponseMessage'
+        '404':
+          description: Task not found error message
+          schema:
+            $ref: '#/definitions/ErrorResponseMessage'
+        '422':
+          description: Validation error message
+          schema:
+            $ref: '#/definitions/ErrorResponseMessage'
+        '500':
+          description: Server Error message
+          schema:
+            $ref: '#/definitions/ErrorResponseMessage'
+        '503':
+          description: Service Unavailable error message
+          schema:
+            $ref: '#/definitions/ErrorResponseMessage'
+  /cabinet/api/v1/signin:
+    post:
+      tags:
+        - cabinet
+      summary: sign in
+      description: Sign in to customer cabinet
+      operationId: signIn
+      consumes:
+        - application/json
+      produces:
+        - application/json
+      parameters:
+        - name: username
+          in: query
+          description: username
+          required: true
+          type: string
+        - name: password
+          in: query
+          description: password
+          required: true
+          type: string
+        - name: rememberMe
+          in: query
+          description: rememberMe
+          required: false
+          type: boolean
+          default: false
+      responses:
+        '200':
+          description: 'AppUser authorised, return access token'
+          schema:
+            $ref: '#/definitions/CabinetAuthorizationDetails'
+        '404':
+          description: AppUser not found
+          schema:
+            $ref: '#/definitions/ErrorResponseMessage'
+        '422':
+          description: Validation error message
+          schema:
+            $ref: '#/definitions/ErrorResponseMessage'
+        '500':
+          description: Server error message
+          schema:
+            $ref: '#/definitions/ErrorResponseMessage'
+        '503':
+          description: Service Unavailable error message
+          schema:
+            $ref: '#/definitions/ErrorResponseMessage'
+definitions:
+  ErrorResponseMessage:
+    type: object
+    required:
+      - message
+      - type
+    properties:
+      developerMessage:
+        type: string
+      message:
+        type: string
+      type:
+        type: string
+      uuid:
+        type: string
+  CabinetAccountInfo:
+    type: object
+    properties:
+      accountNo:
+        type: string
+      balance:
+        type: number
+        format: double
+      clientName:
+        type: string
+      documents:
+        type: array
+        items:
+          $ref: '#/definitions/DocInfo'
+      services:
+        type: array
+        items:
+          $ref: '#/definitions/ServiceInfo'
+  ServiceInfo:
+    type: object
+    properties:
+      serviceName:
+        type: string
+      state:
+        type: boolean
+      subscrServiceId:
+        type: integer
+        format: int32
+  CabinetAuthorizationDetails:
+    type: object
+    properties:
+      accNo:
+        type: string
+      authorities:
+        type: array
+        items:
+          type: string
+      clientName:
+        type: string
+      token:
+        $ref: '#/definitions/CabinetToken'
+  CabinetToken:
+    type: object
+    properties:
+      activeSign:
+        type: integer
+        format: int32
+      apiKey:
+        type: string
+      expiresAfter:
+        type: integer
+        format: int64
+  DocInfo:
+    type: object
+    properties:
+      docDate:
+        type: string
+        format: date-time
+      docId:
+        type: integer
+        format: int32
+      docName:
+        type: string
+      docUrl:
+        type: string

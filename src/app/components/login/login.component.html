@@ -1,0 +1,53 @@
+<div class="container-fluid">
+    <div class="logo"
+         i18n="@@cabinet">Cabinet
+    </div>
+    <div class="row justify-content-center">
+        <div class="col-sm-8 col-md-6 col-lg-4">
+            <div class="card m-3 p-3">
+                <h4 class="form-signin-heading" i18n="@@authorize">Please Authorize</h4>
+                <form class="form-signin " [formGroup]="form" (ngSubmit)="login()">
+                    <div class="form-group">
+                        <label for="accountNo"
+                               i18n="@@accountNo">Account No</label>
+                        <input id="accountNo"
+                               type="text"
+                               class="form-control"
+                               formControlName="accountNo">
+                        <div *ngIf="form.controls.accountNo.touched && !form.controls.accountNo.valid"
+                             class="alert alert-danger"
+                             i18n="@@accountNoRequired">Account No is required
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="password"
+                               i18n="@@password">Password</label>
+                        <input id="password"
+                               type="password"
+                               class="form-control"
+                               formControlName="password">
+                        <div *ngIf="form.controls.password.errors">
+                            <div *ngIf="form.controls.password.errors.invalidLogin" class="alert alert-danger"
+                                 i18n="@@accountNoOrPasswordInvalid">Account No or password is invalid
+                            </div>
+                            <div *ngIf="form.controls.password.touched">
+                                <div *ngIf="form.controls.password.errors.cannotContainSpace"
+                                     class="alert alert-danger"
+                                     i18n="@@passwordCannotContainSpace">Password cannot contain space
+                                </div>
+                                <div *ngIf="form.controls.password.touched && form.controls.password.errors">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <button id="login-button"
+                            class="btn btn-lg btn-primary btn-block"
+                            type="submit">
+                        <ng-container i18n="@@login">Login</ng-container>
+                    </button>
+                </form>
+                <b>{{message}}</b>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+  <file source-language="en" datatype="plaintext" original="ng2.template">
+    <body>
+      <trans-unit id="cabinet" datatype="html">
+        <source>Cabinet
+    </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app\components\login\login.component.ts</context>
+          <context context-type="linenumber">3</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app\components\home\home.component.ts</context>
+          <context context-type="linenumber">4</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="authorize" datatype="html">
+        <source>Please Authorize</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app\components\login\login.component.ts</context>
+          <context context-type="linenumber">8</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="accountNo" datatype="html">
+        <source>Account No</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app\components\login\login.component.ts</context>
+          <context context-type="linenumber">12</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app\components\home\home.component.ts</context>
+          <context context-type="linenumber">18</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="accountNoRequired" datatype="html">
+        <source>Account No is required
+                        </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app\components\login\login.component.ts</context>
+          <context context-type="linenumber">19</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="password" datatype="html">
+        <source>Password</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app\components\login\login.component.ts</context>
+          <context context-type="linenumber">24</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="accountNoOrPasswordInvalid" datatype="html">
+        <source>Account No or password is invalid
+                            </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app\components\login\login.component.ts</context>
+          <context context-type="linenumber">31</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="passwordCannotContainSpace" datatype="html">
+        <source>Password cannot contain space
+                                </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app\components\login\login.component.ts</context>
+          <context context-type="linenumber">36</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="login" datatype="html">
+        <source>Login</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app\components\login\login.component.ts</context>
+          <context context-type="linenumber">46</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="logout" datatype="html">
+        <source>Logout</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app\components\home\home.component.ts</context>
+          <context context-type="linenumber">9</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="name" datatype="html">
+        <source>Name</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app\components\home\home.component.ts</context>
+          <context context-type="linenumber">22</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="debt" datatype="html">
+        <source>Debt</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app\components\home\home.component.ts</context>
+          <context context-type="linenumber">26</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="services" datatype="html">
+        <source>Services</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app\components\home\home.component.ts</context>
+          <context context-type="linenumber">41</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="on" datatype="html">
+        <source>On</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app\components\home\home.component.ts</context>
+          <context context-type="linenumber">47</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="off" datatype="html">
+        <source>Off</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app\components\home\home.component.ts</context>
+          <context context-type="linenumber">48</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="noServices" datatype="html">
+        <source>No services</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app\components\home\home.component.ts</context>
+          <context context-type="linenumber">52</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="documents" datatype="html">
+        <source>Documents</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app\components\home\home.component.ts</context>
+          <context context-type="linenumber">56</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="noDocuments" datatype="html">
+        <source>No documents</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app\components\home\home.component.ts</context>
+          <context context-type="linenumber">66</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="pageNotFound" datatype="html">
+        <source>Page not found</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app\components\page-not-found\page-not-found.component.ts</context>
+          <context context-type="linenumber">1</context>
+        </context-group>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>

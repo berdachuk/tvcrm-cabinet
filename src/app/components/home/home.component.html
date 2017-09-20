@@ -1,0 +1,73 @@
+<div class="container">
+    <div class="row mt-2">
+        <div class="col-8">
+            <h1 i18n="@@cabinet">Cabinet</h1>
+        </div>
+        <div class="col-4">
+            <form method="get" action="/cabinet/signin">
+                <button class="btn btn-outline-secondary float-right" (click)="logout()">
+                    <ng-container i18n="@@logout">Logout</ng-container>
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <div class="col card card-block">
+        <form class="mt-2">
+            <div class="form-group row">
+                <label for="accountNo" class="col-md-4 col-form-label" i18n="@@accountNo">Account No</label>
+                <div id="accountNo" class="col-md-8 form-control-static">{{cabinetAccountInfo.accountNo}}</div>
+            </div>
+            <div class="form-group row">
+                <label for="userName" class="col-md-4 col-form-label" i18n="@@name">Name</label>
+                <div id="userName" class="col-md-8 form-control-static">{{cabinetAccountInfo.clientName}}</div>
+            </div>
+            <div class="form-group row">
+                <label for="accBalance" class="col-md-4 col-form-label" i18n="@@debt">Debt</label>
+                <ng-template [ngIf]="cabinetAccountInfo.balance > 0" [ngIfElse]="debtNormal">
+                    <div id="accBalance"
+                         class="col-md-8 form-control-static alert-danger">
+                        {{cabinetAccountInfo.balance}}
+                    </div>
+                </ng-template>
+                <ng-template #debtNormal>
+                    <div id="accBalance"
+                         class="col-md-8 form-control-static">
+                        {{cabinetAccountInfo.balance}}
+                    </div>
+                </ng-template>
+            </div>
+        </form>
+        <h4 i18n="@@services">Services</h4>
+        <div class="list-group mb-3">
+            <ng-template [ngIf]="cabinetAccountInfo.services.length > 0" [ngIfElse]="noServices">
+                <div class="list-group-item justify-content-between"
+                     *ngFor="let serviceInfo of cabinetAccountInfo.services">
+                    <span>{{serviceInfo.serviceName}}</span>
+                    <span *ngIf="serviceInfo.state" class="badge badge-success float-right" i18n="@@on">On</span>
+                    <span *ngIf="!serviceInfo.state" class="badge badge-danger float-right" i18n="@@off">Off</span>
+                </div>
+            </ng-template>
+            <ng-template #noServices>
+                <div class="list-group-item justify-content-between">
+                    <span i18n="@@noServices">No services</span>
+                </div>
+            </ng-template>
+        </div>
+        <h4 i18n="@@documents">Documents</h4>
+        <div class="list-group mb-3">
+            <ng-template [ngIf]="cabinetAccountInfo.documents.length > 0" [ngIfElse]="noDocuments">
+                <div class="list-group-item justify-content-between"
+                     *ngFor="let docInfo of cabinetAccountInfo.documents">
+                    <a href="{{docInfo.docUrl}}" target="_blank">{{docInfo.docName}}</a>
+                    <span class="float-right">{{docInfo.docDate | date}}</span>
+                </div>
+            </ng-template>
+            <ng-template #noDocuments>
+                <div class="list-group-item justify-content-between">
+                    <span i18n="@@noDocuments">No documents</span>
+                </div>
+            </ng-template>
+        </div>
+    </div>
+</div>
